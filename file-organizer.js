@@ -43,5 +43,16 @@ function initailizeDirectories(){
         })
     }
     console.log("Messy file created...");
+
+    if(!fs.existsSync(organizedDir)){
+      fs.mkdirSync(organizedDir,{recursive:true});
+    }
+
+    Object.keys(categories).forEach((categories)=>{
+      const categoryPath =path.join(organizedDir,categories);
+      fs.mkdirSync(categoryPath);
+    })
 }
+
 initailizeDirectories();
+
